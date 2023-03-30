@@ -1,0 +1,114 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\MarketApp\\MarketWinForm\\MarketWinForm\\MarketWinForm.csproj": {}
+  },
+  "projects": {
+    "C:\\MarketApp\\MarketWinForm\\BussinesLayer\\BussinesLayer.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\MarketApp\\MarketWinForm\\BussinesLayer\\BussinesLayer.csproj",
+        "projectName": "BussinesLayer",
+        "projectPath": "C:\\MarketApp\\MarketWinForm\\BussinesLayer\\BussinesLayer.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\MarketApp\\MarketWinForm\\DataLayers\\DataLayers.csproj": {
+                "projectPath": "C:\\MarketApp\\MarketWinForm\\DataLayers\\DataLayers.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\MarketApp\\MarketWinForm\\DataLayers\\DataLayers.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\MarketApp\\MarketWinForm\\DataLayers\\DataLayers.csproj",
+        "projectName": "DataLayers",
+        "projectPath": "C:\\MarketApp\\MarketWinForm\\DataLayers\\DataLayers.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\MarketApp\\MarketWinForm\\MarketWinForm\\MarketWinForm.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\MarketApp\\MarketWinForm\\MarketWinForm\\MarketWinForm.csproj",
+        "projectName": "MarketWinForm",
+        "projectPath": "C:\\MarketApp\\MarketWinForm\\MarketWinForm\\MarketWinForm.csproj",
+        "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
+        "outputPath": "C:\\MarketApp\\MarketWinForm\\MarketWinForm\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0-windows"
+        ],
+        "sources": {
+          "C:\\NTierProjects\\packages": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0-windows7.0": {
+            "targetAlias": "net7.0-windows",
+            "projectReferences": {
+              "C:\\MarketApp\\MarketWinForm\\BussinesLayer\\BussinesLayer.csproj": {
+                "projectPath": "C:\\MarketApp\\MarketWinForm\\BussinesLayer\\BussinesLayer.csproj"
+              },
+              "C:\\MarketApp\\MarketWinForm\\DataLayers\\DataLayers.csproj": {
+                "projectPath": "C:\\MarketApp\\MarketWinForm\\DataLayers\\DataLayers.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0-windows7.0": {
+          "targetAlias": "net7.0-windows",
+          "dependencies": {
+            "Bunifu.UI.WinForms": {
+              "target": "Package",
+              "version": "[6.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WindowsForms": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

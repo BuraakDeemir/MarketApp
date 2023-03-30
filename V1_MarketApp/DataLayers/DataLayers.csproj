@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4E959337-60F5-4F64-9CFD-96A0197FD768}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataLayers</RootNamespace>
+    <AssemblyName>DataLayers</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MarketAppModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MarketAppModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MarketAppModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MarketAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MarketAppModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MarketAppModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TblEmail.cs">
+      <DependentUpon>MarketAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TblKategori.cs">
+      <DependentUpon>MarketAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TblKisi.cs">
+      <DependentUpon>MarketAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TblKisiAdres.cs">
+      <DependentUpon>MarketAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TblKisiTelefon.cs">
+      <DependentUpon>MarketAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TblKullanici.cs">
+      <DependentUpon>MarketAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TblOrder.cs">
+      <DependentUpon>MarketAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TblOrderDetails.cs">
+      <DependentUpon>MarketAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TblOrderPrice.cs">
+      <DependentUpon>MarketAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TblSepet.cs">
+      <DependentUpon>MarketAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TblSepetDetay.cs">
+      <DependentUpon>MarketAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TblUrun.cs">
+      <DependentUpon>MarketAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TblUrunKategori.cs">
+      <DependentUpon>MarketAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VwBasket.cs">
+      <DependentUpon>MarketAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VWKisiKullanici.cs">
+      <DependentUpon>MarketAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VwOrder.cs">
+      <DependentUpon>MarketAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VwOrderDetails.cs">
+      <DependentUpon>MarketAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VwProfilShow.cs">
+      <DependentUpon>MarketAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VWUrunVeKategoriler.cs">
+      <DependentUpon>MarketAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="YeniAdresTablosu.cs">
+      <DependentUpon>MarketAppModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="MarketAppModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MarketAppModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="MarketAppModel.edmx.diagram">
+      <DependentUpon>MarketAppModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MarketAppModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MarketAppModel.edmx</DependentUpon>
+      <LastGenOutput>MarketAppModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="MarketAppModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MarketAppModel.edmx</DependentUpon>
+      <LastGenOutput>MarketAppModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

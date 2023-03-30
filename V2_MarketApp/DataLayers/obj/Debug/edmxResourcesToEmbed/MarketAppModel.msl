@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DbInfoTechSales_NewModelStoreContainer" CdmEntityContainer="DbInfoTechSales_NewEntities">
+    <EntitySetMapping Name="TblEmail">
+      <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.TblEmail">
+        <MappingFragment StoreEntitySet="TblEmail">
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="KisiId" ColumnName="KisiId" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblKategori">
+      <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.TblKategori">
+        <MappingFragment StoreEntitySet="TblKategori">
+          <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+          <ScalarProperty Name="KategoriAdi" ColumnName="KategoriAdi" />
+          <ScalarProperty Name="Aktif" ColumnName="Aktif" />
+          <ScalarProperty Name="Seo" ColumnName="Seo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblKisi">
+      <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.TblKisi">
+        <MappingFragment StoreEntitySet="TblKisi">
+          <ScalarProperty Name="KisiId" ColumnName="KisiId" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblKisiAdres">
+      <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.TblKisiAdres">
+        <MappingFragment StoreEntitySet="TblKisiAdres">
+          <ScalarProperty Name="District" ColumnName="District" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="AdresId" ColumnName="AdresId" />
+          <ScalarProperty Name="KisiId" ColumnName="KisiId" />
+          <ScalarProperty Name="Adres" ColumnName="Adres" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblKisiTelefon">
+      <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.TblKisiTelefon">
+        <MappingFragment StoreEntitySet="TblKisiTelefon">
+          <ScalarProperty Name="TelefonId" ColumnName="TelefonId" />
+          <ScalarProperty Name="KisiId" ColumnName="KisiId" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblKullanici">
+      <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.TblKullanici">
+        <MappingFragment StoreEntitySet="TblKullanici">
+          <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
+          <ScalarProperty Name="KisiId" ColumnName="KisiId" />
+          <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+          <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+          <ScalarProperty Name="SonGirisTarihi" ColumnName="SonGirisTarihi" />
+          <ScalarProperty Name="KayitTarihi" ColumnName="KayitTarihi" />
+          <ScalarProperty Name="Aktif" ColumnName="Aktif" />
+          <ScalarProperty Name="Admin" ColumnName="Admin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblOrder">
+      <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.TblOrder">
+        <MappingFragment StoreEntitySet="TblOrder">
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="Situation" ColumnName="Situation" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblOrderDetails">
+      <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.TblOrderDetails">
+        <MappingFragment StoreEntitySet="TblOrderDetails">
+          <ScalarProperty Name="OrderDetailId" ColumnName="OrderDetailId" />
+          <ScalarProperty Name="orderId" ColumnName="orderId" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="PersonAdress" ColumnName="PersonAdress" />
+          <ScalarProperty Name="PersonContact" ColumnName="PersonContact" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblOrderPrice">
+      <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.TblOrderPrice">
+        <MappingFragment StoreEntitySet="TblOrderPrice">
+          <ScalarProperty Name="OrderPriceId" ColumnName="OrderPriceId" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="OrderPiece" ColumnName="OrderPiece" />
+          <ScalarProperty Name="OrderTex" ColumnName="OrderTex" />
+          <ScalarProperty Name="OrderlSub" ColumnName="OrderlSub" />
+          <ScalarProperty Name="OrderTotalPrice" ColumnName="OrderTotalPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblSepet">
+      <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.TblSepet">
+        <MappingFragment StoreEntitySet="TblSepet">
+          <ScalarProperty Name="SepetId" ColumnName="SepetId" />
+          <ScalarProperty Name="KisiId" ColumnName="KisiId" />
+          <ScalarProperty Name="SepetTarihi" ColumnName="SepetTarihi" />
+          <ScalarProperty Name="Durum" ColumnName="Durum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblSepetDetay">
+      <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.TblSepetDetay">
+        <MappingFragment StoreEntitySet="TblSepetDetay">
+          <ScalarProperty Name="SepetDetayId" ColumnName="SepetDetayId" />
+          <ScalarProperty Name="KisiId" ColumnName="KisiId" />
+          <ScalarProperty Name="SepetId" ColumnName="SepetId" />
+          <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+          <ScalarProperty Name="Adet" ColumnName="Adet" />
+          <ScalarProperty Name="BirimFiyat" ColumnName="BirimFiyat" />
+          <ScalarProperty Name="AraToplam" ColumnName="AraToplam" />
+          <ScalarProperty Name="KdvToplami" ColumnName="KdvToplami" />
+          <ScalarProperty Name="KdvOrani" ColumnName="KdvOrani" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblUrun">
+      <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.TblUrun">
+        <MappingFragment StoreEntitySet="TblUrun">
+          <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+          <ScalarProperty Name="UrunKodu" ColumnName="UrunKodu" />
+          <ScalarProperty Name="UrunAdi" ColumnName="UrunAdi" />
+          <ScalarProperty Name="BirimFiyat" ColumnName="BirimFiyat" />
+          <ScalarProperty Name="KdvOrani" ColumnName="KdvOrani" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblUrunKategori">
+      <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.TblUrunKategori">
+        <MappingFragment StoreEntitySet="TblUrunKategori">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+          <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VwBasket">
+      <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.VwBasket">
+        <MappingFragment StoreEntitySet="VwBasket">
+          <ScalarProperty Name="KisiId" ColumnName="KisiId" />
+          <ScalarProperty Name="SepetId" ColumnName="SepetId" />
+          <ScalarProperty Name="SepetTarihi" ColumnName="SepetTarihi" />
+          <ScalarProperty Name="UrunAdi" ColumnName="UrunAdi" />
+          <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+          <ScalarProperty Name="UrunKodu" ColumnName="UrunKodu" />
+          <ScalarProperty Name="BirimFiyat" ColumnName="BirimFiyat" />
+          <ScalarProperty Name="Adet" ColumnName="Adet" />
+          <ScalarProperty Name="KdvOrani" ColumnName="KdvOrani" />
+          <ScalarProperty Name="KdvToplami" ColumnName="KdvToplami" />
+          <ScalarProperty Name="AraToplam" ColumnName="AraToplam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VWKisiKullanici">
+      <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.VWKisiKullanici">
+        <MappingFragment StoreEntitySet="VWKisiKullanici">
+          <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
+          <ScalarProperty Name="KisiId" ColumnName="KisiId" />
+          <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+          <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+          <ScalarProperty Name="SonGirisTarihi" ColumnName="SonGirisTarihi" />
+          <ScalarProperty Name="KayitTarihi" ColumnName="KayitTarihi" />
+          <ScalarProperty Name="Aktif" ColumnName="Aktif" />
+          <ScalarProperty Name="Admin" ColumnName="Admin" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VwOrder">
+      <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.VwOrder">
+        <MappingFragment StoreEntitySet="VwOrder">
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Adet" ColumnName="Adet" />
+          <ScalarProperty Name="AraToplam" ColumnName="AraToplam" />
+          <ScalarProperty Name="Vergiler" ColumnName="Vergiler" />
+          <ScalarProperty Name="Toplam" ColumnName="Toplam" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Situation" ColumnName="Situation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VwOrderDetails">
+      <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.VwOrderDetails">
+        <MappingFragment StoreEntitySet="VwOrderDetails">
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="PersonAdress" ColumnName="PersonAdress" />
+          <ScalarProperty Name="PersonContact" ColumnName="PersonContact" />
+          <ScalarProperty Name="Adet" ColumnName="Adet" />
+          <ScalarProperty Name="AraToplam" ColumnName="AraToplam" />
+          <ScalarProperty Name="Vergiler" ColumnName="Vergiler" />
+          <ScalarProperty Name="Toplam" ColumnName="Toplam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VwProfilShow">
+      <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.VwProfilShow">
+        <MappingFragment StoreEntitySet="VwProfilShow">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Pass" ColumnName="Pass" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="DbInfoTechSales_NewModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="DbInfoTechSales_NewModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="DbInfoTechSales_NewModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="DbInfoTechSales_NewModel.Store.sp_helpdiagramdefinition" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="DbInfoTechSales_NewModel.Store.sp_helpdiagrams" />
+    <EntitySetMapping Name="VWUrunVeKategoriler">
+      <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.VWUrunVeKategoriler">
+        <MappingFragment StoreEntitySet="VWUrunVeKategoriler">
+          <ScalarProperty Name="BirimFiyat" ColumnName="BirimFiyat" />
+          <ScalarProperty Name="KdvOrani" ColumnName="KdvOrani" />
+          <ScalarProperty Name="UrunAdi" ColumnName="UrunAdi" />
+          <ScalarProperty Name="UrunKodu" ColumnName="UrunKodu" />
+          <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+          <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YeniAdresTablosu">
+      <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.YeniAdresTablosu">
+        <MappingFragment StoreEntitySet="YeniAdresTablosu">
+          <ScalarProperty Name="UstID" ColumnName="UstID" />
+          <ScalarProperty Name="SehirIlceMahalleAdi" ColumnName="SehirIlceMahalleAdi" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

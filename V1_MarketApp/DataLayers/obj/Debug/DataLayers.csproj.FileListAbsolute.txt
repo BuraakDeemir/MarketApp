@@ -1,0 +1,12 @@
+C:\MarketApp\MarketWinForm\DataLayers\bin\Debug\DataLayers.dll.config
+C:\MarketApp\MarketWinForm\DataLayers\bin\Debug\DataLayers.dll
+C:\MarketApp\MarketWinForm\DataLayers\bin\Debug\DataLayers.pdb
+C:\MarketApp\MarketWinForm\DataLayers\bin\Debug\EntityFramework.dll
+C:\MarketApp\MarketWinForm\DataLayers\bin\Debug\EntityFramework.SqlServer.dll
+C:\MarketApp\MarketWinForm\DataLayers\bin\Debug\EntityFramework.xml
+C:\MarketApp\MarketWinForm\DataLayers\bin\Debug\EntityFramework.SqlServer.xml
+C:\MarketApp\MarketWinForm\DataLayers\obj\Debug\DataLayers.csproj.AssemblyReference.cache
+C:\MarketApp\MarketWinForm\DataLayers\obj\Debug\DataLayers.csproj.CoreCompileInputs.cache
+C:\MarketApp\MarketWinForm\DataLayers\obj\Debug\DataLayers.csproj.CopyComplete
+C:\MarketApp\MarketWinForm\DataLayers\obj\Debug\DataLayers.dll
+C:\MarketApp\MarketWinForm\DataLayers\obj\Debug\DataLayers.pdb

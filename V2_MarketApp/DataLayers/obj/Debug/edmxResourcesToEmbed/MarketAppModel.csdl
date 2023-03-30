@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DbInfoTechSales_NewModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TblEmail">
+    <Key>
+      <PropertyRef Name="EmailId" />
+    </Key>
+    <Property Name="EmailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KisiId" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TblKisi" Relationship="Self.C_FK_TblEmail_TblKisi" FromRole="TblEmail" ToRole="TblKisi" />
+  </EntityType>
+  <EntityType Name="TblKategori">
+    <Key>
+      <PropertyRef Name="KategoriId" />
+    </Key>
+    <Property Name="KategoriId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KategoriAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Aktif" Type="Boolean" />
+    <Property Name="Seo" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TblKisi">
+    <Key>
+      <PropertyRef Name="KisiId" />
+    </Key>
+    <Property Name="KisiId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ad" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="TblEmail" Relationship="Self.C_FK_TblEmail_TblKisi" FromRole="TblKisi" ToRole="TblEmail" />
+    <NavigationProperty Name="TblKisiAdres" Relationship="Self.C_FK_TblKisiAdres_TblKisi" FromRole="TblKisi" ToRole="TblKisiAdres" />
+    <NavigationProperty Name="TblKisiTelefon" Relationship="Self.C_FK_TblKisiTelefon_TblKisi" FromRole="TblKisi" ToRole="TblKisiTelefon" />
+    <NavigationProperty Name="TblKullanici" Relationship="Self.C_FK_TblKullanici_TblKisi" FromRole="TblKisi" ToRole="TblKullanici" />
+  </EntityType>
+  <EntityType Name="TblKisiAdres">
+    <Key>
+      <PropertyRef Name="AdresId" />
+    </Key>
+    <Property Name="AdresId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KisiId" Type="Int32" />
+    <Property Name="Adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TblKisi" Relationship="Self.C_FK_TblKisiAdres_TblKisi" FromRole="TblKisiAdres" ToRole="TblKisi" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="District" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TblKisiTelefon">
+    <Key>
+      <PropertyRef Name="TelefonId" />
+    </Key>
+    <Property Name="TelefonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KisiId" Type="Int32" />
+    <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TblKisi" Relationship="Self.C_FK_TblKisiTelefon_TblKisi" FromRole="TblKisiTelefon" ToRole="TblKisi" />
+  </EntityType>
+  <EntityType Name="TblKullanici">
+    <Key>
+      <PropertyRef Name="KullaniciId" />
+    </Key>
+    <Property Name="KullaniciId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KisiId" Type="Int32" />
+    <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="SonGirisTarihi" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="KayitTarihi" Type="DateTime" Precision="3" />
+    <Property Name="Aktif" Type="Boolean" />
+    <Property Name="Admin" Type="Boolean" />
+    <NavigationProperty Name="TblKisi" Relationship="Self.C_FK_TblKullanici_TblKisi" FromRole="TblKullanici" ToRole="TblKisi" />
+  </EntityType>
+  <EntityType Name="TblOrder">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonId" Type="Int32" />
+    <Property Name="Situation" Type="Int32" />
+    <Property Name="CreateDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="TblOrderDetails">
+    <Key>
+      <PropertyRef Name="OrderDetailId" />
+    </Key>
+    <Property Name="OrderDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="orderId" Type="Int32" />
+    <Property Name="PersonId" Type="Int32" />
+    <Property Name="PersonAdress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PersonContact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProductId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TblOrderPrice">
+    <Key>
+      <PropertyRef Name="OrderPriceId" />
+    </Key>
+    <Property Name="OrderPriceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderId" Type="Int32" />
+    <Property Name="OrderPiece" Type="Int32" />
+    <Property Name="OrderTex" Type="Double" />
+    <Property Name="OrderlSub" Type="Double" />
+    <Property Name="OrderTotalPrice" Type="Double" />
+  </EntityType>
+  <EntityType Name="TblSepet">
+    <Key>
+      <PropertyRef Name="SepetId" />
+    </Key>
+    <Property Name="SepetId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KisiId" Type="Int32" />
+    <Property Name="SepetTarihi" Type="DateTime" Precision="3" />
+    <Property Name="Durum" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TblSepetDetay">
+    <Key>
+      <PropertyRef Name="SepetDetayId" />
+    </Key>
+    <Property Name="SepetDetayId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KisiId" Type="Int32" />
+    <Property Name="SepetId" Type="Int32" />
+    <Property Name="UrunId" Type="Int32" />
+    <Property Name="Adet" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="BirimFiyat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="AraToplam" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KdvToplami" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="KdvOrani" Type="Double" />
+  </EntityType>
+  <EntityType Name="TblUrun">
+    <Key>
+      <PropertyRef Name="UrunId" />
+    </Key>
+    <Property Name="UrunId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UrunKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UrunAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BirimFiyat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KdvOrani" Type="Double" />
+  </EntityType>
+  <EntityType Name="TblUrunKategori">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UrunId" Type="Int32" />
+    <Property Name="KategoriId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="VwBasket">
+    <Key>
+      <PropertyRef Name="SepetId" />
+      <PropertyRef Name="UrunId" />
+    </Key>
+    <Property Name="KisiId" Type="Int32" />
+    <Property Name="SepetId" Type="Int32" Nullable="false" />
+    <Property Name="SepetTarihi" Type="DateTime" Precision="3" />
+    <Property Name="UrunAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UrunId" Type="Int32" Nullable="false" />
+    <Property Name="UrunKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BirimFiyat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Adet" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="KdvOrani" Type="Double" />
+    <Property Name="KdvToplami" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="AraToplam" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="VWKisiKullanici">
+    <Key>
+      <PropertyRef Name="KullaniciId" />
+      <PropertyRef Name="SonGirisTarihi" />
+    </Key>
+    <Property Name="KullaniciId" Type="Int32" Nullable="false" />
+    <Property Name="KisiId" Type="Int32" />
+    <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="SonGirisTarihi" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="KayitTarihi" Type="DateTime" Precision="3" />
+    <Property Name="Aktif" Type="Boolean" />
+    <Property Name="Admin" Type="Boolean" />
+    <Property Name="Ad" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VwOrder">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="PersonId" Type="Int32" />
+    <Property Name="OrderId" Type="Int32" Nullable="false" />
+    <Property Name="Adet" Type="Int32" />
+    <Property Name="AraToplam" Type="Double" />
+    <Property Name="Vergiler" Type="Double" />
+    <Property Name="Toplam" Type="Double" />
+    <Property Name="CreateDate" Type="DateTime" Precision="0" />
+    <Property Name="Situation" Type="Int32" />
+  </EntityType>
+  <EntityType Name="VwOrderDetails">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="PersonId" Type="Int32" />
+    <Property Name="OrderId" Type="Int32" Nullable="false" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="PersonAdress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PersonContact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Adet" Type="Int32" />
+    <Property Name="AraToplam" Type="Double" />
+    <Property Name="Vergiler" Type="Double" />
+    <Property Name="Toplam" Type="Double" />
+  </EntityType>
+  <EntityType Name="VwProfilShow">
+    <Key>
+      <PropertyRef Name="PersonId" />
+    </Key>
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="CreateDateTime" Type="DateTime" Precision="0" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Pass" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="UserEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PersonId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="C_FK_TblEmail_TblKisi">
+    <End Role="TblKisi" Type="Self.TblKisi" Multiplicity="0..1" />
+    <End Role="TblEmail" Type="Self.TblEmail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblKisi">
+        <PropertyRef Name="KisiId" />
+      </Principal>
+      <Dependent Role="TblEmail">
+        <PropertyRef Name="KisiId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="C_FK_TblKisiAdres_TblKisi">
+    <End Role="TblKisi" Type="Self.TblKisi" Multiplicity="0..1" />
+    <End Role="TblKisiAdres" Type="Self.TblKisiAdres" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblKisi">
+        <PropertyRef Name="KisiId" />
+      </Principal>
+      <Dependent Role="TblKisiAdres">
+        <PropertyRef Name="KisiId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="C_FK_TblKisiTelefon_TblKisi">
+    <End Role="TblKisi" Type="Self.TblKisi" Multiplicity="0..1" />
+    <End Role="TblKisiTelefon" Type="Self.TblKisiTelefon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblKisi">
+        <PropertyRef Name="KisiId" />
+      </Principal>
+      <Dependent Role="TblKisiTelefon">
+        <PropertyRef Name="KisiId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="C_FK_TblKullanici_TblKisi">
+    <End Role="TblKisi" Type="Self.TblKisi" Multiplicity="0..1" />
+    <End Role="TblKullanici" Type="Self.TblKullanici" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblKisi">
+        <PropertyRef Name="KisiId" />
+      </Principal>
+      <Dependent Role="TblKullanici">
+        <PropertyRef Name="KisiId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DbInfoTechSales_NewEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TblEmail" EntityType="Self.TblEmail" />
+    <EntitySet Name="TblKategori" EntityType="Self.TblKategori" />
+    <EntitySet Name="TblKisi" EntityType="Self.TblKisi" />
+    <EntitySet Name="TblKisiAdres" EntityType="Self.TblKisiAdres" />
+    <EntitySet Name="TblKisiTelefon" EntityType="Self.TblKisiTelefon" />
+    <EntitySet Name="TblKullanici" EntityType="Self.TblKullanici" />
+    <EntitySet Name="TblOrder" EntityType="Self.TblOrder" />
+    <EntitySet Name="TblOrderDetails" EntityType="Self.TblOrderDetails" />
+    <EntitySet Name="TblOrderPrice" EntityType="Self.TblOrderPrice" />
+    <EntitySet Name="TblSepet" EntityType="Self.TblSepet" />
+    <EntitySet Name="TblSepetDetay" EntityType="Self.TblSepetDetay" />
+    <EntitySet Name="TblUrun" EntityType="Self.TblUrun" />
+    <EntitySet Name="TblUrunKategori" EntityType="Self.TblUrunKategori" />
+    <EntitySet Name="VwBasket" EntityType="Self.VwBasket" />
+    <EntitySet Name="VWKisiKullanici" EntityType="Self.VWKisiKullanici" />
+    <EntitySet Name="VwOrder" EntityType="Self.VwOrder" />
+    <EntitySet Name="VwOrderDetails" EntityType="Self.VwOrderDetails" />
+    <EntitySet Name="VwProfilShow" EntityType="Self.VwProfilShow" />
+    <AssociationSet Name="C_FK_TblEmail_TblKisi" Association="Self.C_FK_TblEmail_TblKisi">
+      <End Role="TblKisi" EntitySet="TblKisi" />
+      <End Role="TblEmail" EntitySet="TblEmail" />
+    </AssociationSet>
+    <AssociationSet Name="C_FK_TblKisiAdres_TblKisi" Association="Self.C_FK_TblKisiAdres_TblKisi">
+      <End Role="TblKisi" EntitySet="TblKisi" />
+      <End Role="TblKisiAdres" EntitySet="TblKisiAdres" />
+    </AssociationSet>
+    <AssociationSet Name="C_FK_TblKisiTelefon_TblKisi" Association="Self.C_FK_TblKisiTelefon_TblKisi">
+      <End Role="TblKisi" EntitySet="TblKisi" />
+      <End Role="TblKisiTelefon" EntitySet="TblKisiTelefon" />
+    </AssociationSet>
+    <AssociationSet Name="C_FK_TblKullanici_TblKisi" Association="Self.C_FK_TblKullanici_TblKisi">
+      <End Role="TblKisi" EntitySet="TblKisi" />
+      <End Role="TblKullanici" EntitySet="TblKullanici" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="VWUrunVeKategoriler" EntityType="DbInfoTechSales_NewModel.VWUrunVeKategoriler" />
+    <EntitySet Name="YeniAdresTablosu" EntityType="DbInfoTechSales_NewModel.YeniAdresTablosu" />
+  </EntityContainer>
+  <EntityType Name="VWUrunVeKategoriler">
+    <Key>
+      <PropertyRef Name="UrunId" />
+    </Key>
+    <Property Name="KategoriId" Type="Int32" />
+    <Property Name="UrunId" Type="Int32" Nullable="false" />
+    <Property Name="UrunKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UrunAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KdvOrani" Type="Double" />
+    <Property Name="BirimFiyat" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="YeniAdresTablosu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SehirIlceMahalleAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UstID" Type="Int32" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9254b34f52f64f91b26f632768bbc0b7" Name="Diagram1" ZoomLevel="71">
+        <EntityTypeShape EntityType="DbInfoTechSales_NewModel.TblEmail" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbInfoTechSales_NewModel.TblKategori" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbInfoTechSales_NewModel.TblKisi" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbInfoTechSales_NewModel.TblKisiAdres" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbInfoTechSales_NewModel.TblKisiTelefon" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbInfoTechSales_NewModel.TblKullanici" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbInfoTechSales_NewModel.TblOrder" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbInfoTechSales_NewModel.TblOrderDetails" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbInfoTechSales_NewModel.TblOrderPrice" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbInfoTechSales_NewModel.TblSepet" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbInfoTechSales_NewModel.TblSepetDetay" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbInfoTechSales_NewModel.TblUrun" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbInfoTechSales_NewModel.TblUrunKategori" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbInfoTechSales_NewModel.VwBasket" Width="1.5" PointX="9.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbInfoTechSales_NewModel.VWKisiKullanici" Width="1.5" PointX="5.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbInfoTechSales_NewModel.VwOrder" Width="1.5" PointX="7.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbInfoTechSales_NewModel.VwOrderDetails" Width="1.5" PointX="9.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbInfoTechSales_NewModel.VwProfilShow" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="DbInfoTechSales_NewModel.C_FK_TblEmail_TblKisi" ManuallyRouted="false" />
+        <AssociationConnector Association="DbInfoTechSales_NewModel.C_FK_TblKisiAdres_TblKisi" ManuallyRouted="false" />
+        <AssociationConnector Association="DbInfoTechSales_NewModel.C_FK_TblKisiTelefon_TblKisi" ManuallyRouted="false" />
+        <AssociationConnector Association="DbInfoTechSales_NewModel.C_FK_TblKullanici_TblKisi" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DbInfoTechSales_NewModel.VWUrunVeKategoriler" Width="1.5" PointX="0.75" PointY="12.75" />
+        <EntityTypeShape EntityType="DbInfoTechSales_NewModel.YeniAdresTablosu" Width="1.5" PointX="12.375" PointY="4.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

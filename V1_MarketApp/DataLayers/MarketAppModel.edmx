@@ -1,0 +1,1044 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DbInfoTechSales_NewModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TblEmail">
+          <Key>
+            <PropertyRef Name="EmailId" />
+          </Key>
+          <Property Name="EmailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KisiId" Type="int" />
+          <Property Name="Email" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TblKategori">
+          <Key>
+            <PropertyRef Name="KategoriId" />
+          </Key>
+          <Property Name="KategoriId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KategoriAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Aktif" Type="bit" />
+          <Property Name="Seo" Type="nchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TblKisi">
+          <Key>
+            <PropertyRef Name="KisiId" />
+          </Key>
+          <Property Name="KisiId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ad" Type="nchar" MaxLength="50" />
+          <Property Name="Soyad" Type="nchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="TblKisiAdres">
+          <Key>
+            <PropertyRef Name="AdresId" />
+          </Key>
+          <Property Name="AdresId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KisiId" Type="int" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="District" Type="nvarchar" MaxLength="50" />
+          <Property Name="Adres" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TblKisiTelefon">
+          <Key>
+            <PropertyRef Name="TelefonId" />
+          </Key>
+          <Property Name="TelefonId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KisiId" Type="int" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="TblKullanici">
+          <Key>
+            <PropertyRef Name="KullaniciId" />
+          </Key>
+          <Property Name="KullaniciId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KisiId" Type="int" />
+          <Property Name="KullaniciAdi" Type="nchar" MaxLength="50" />
+          <Property Name="Sifre" Type="nchar" MaxLength="50" />
+          <Property Name="SonGirisTarihi" Type="datetime" Nullable="false" />
+          <Property Name="KayitTarihi" Type="datetime" />
+          <Property Name="Aktif" Type="bit" />
+          <Property Name="Admin" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblOrder">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonId" Type="int" />
+          <Property Name="Situation" Type="int" />
+          <Property Name="CreateDate" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="TblOrderDetails">
+          <Key>
+            <PropertyRef Name="OrderDetailId" />
+          </Key>
+          <Property Name="OrderDetailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="orderId" Type="int" />
+          <Property Name="PersonId" Type="int" />
+          <Property Name="PersonAdress" Type="nvarchar(max)" />
+          <Property Name="PersonContact" Type="nvarchar(max)" />
+          <Property Name="ProductId" Type="int" />
+        </EntityType>
+        <EntityType Name="TblOrderPrice">
+          <Key>
+            <PropertyRef Name="OrderPriceId" />
+          </Key>
+          <Property Name="OrderPriceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderId" Type="int" />
+          <Property Name="OrderPiece" Type="int" />
+          <Property Name="OrderTex" Type="float" />
+          <Property Name="OrderlSub" Type="float" />
+          <Property Name="OrderTotalPrice" Type="float" />
+        </EntityType>
+        <EntityType Name="TblSepet">
+          <Key>
+            <PropertyRef Name="SepetId" />
+          </Key>
+          <Property Name="SepetId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KisiId" Type="int" />
+          <Property Name="SepetTarihi" Type="datetime" />
+          <Property Name="Durum" Type="int" />
+        </EntityType>
+        <EntityType Name="TblSepetDetay">
+          <Key>
+            <PropertyRef Name="SepetDetayId" />
+          </Key>
+          <Property Name="SepetDetayId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KisiId" Type="int" />
+          <Property Name="SepetId" Type="int" />
+          <Property Name="UrunId" Type="int" />
+          <Property Name="Adet" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="BirimFiyat" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="AraToplam" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="KdvToplami" Type="nchar" MaxLength="10" />
+          <Property Name="KdvOrani" Type="float" />
+        </EntityType>
+        <EntityType Name="TblUrun">
+          <Key>
+            <PropertyRef Name="UrunId" />
+          </Key>
+          <Property Name="UrunId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UrunKodu" Type="nvarchar" MaxLength="50" />
+          <Property Name="UrunAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="BirimFiyat" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="KdvOrani" Type="float" />
+        </EntityType>
+        <EntityType Name="TblUrunKategori">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UrunId" Type="int" />
+          <Property Name="KategoriId" Type="int" />
+        </EntityType>
+        <EntityType Name="YeniAdresTablosu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SehirIlceMahalleAdi" Type="nvarchar(max)" />
+          <Property Name="UstID" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DbInfoTechSales_New.dbo.VwBasket' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VwBasket">
+          <Key>
+            <PropertyRef Name="SepetId" />
+            <PropertyRef Name="UrunId" />
+          </Key>
+          <Property Name="KisiId" Type="int" />
+          <Property Name="SepetId" Type="int" Nullable="false" />
+          <Property Name="SepetTarihi" Type="datetime" />
+          <Property Name="UrunAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="UrunId" Type="int" Nullable="false" />
+          <Property Name="UrunKodu" Type="nvarchar" MaxLength="50" />
+          <Property Name="BirimFiyat" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Adet" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="KdvOrani" Type="float" />
+          <Property Name="KdvToplami" Type="nchar" MaxLength="10" />
+          <Property Name="AraToplam" Type="numeric" Precision="18" Scale="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DbInfoTechSales_New.dbo.VWKisiKullanici' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VWKisiKullanici">
+          <Key>
+            <PropertyRef Name="KullaniciId" />
+            <PropertyRef Name="SonGirisTarihi" />
+          </Key>
+          <Property Name="KullaniciId" Type="int" Nullable="false" />
+          <Property Name="KisiId" Type="int" />
+          <Property Name="KullaniciAdi" Type="nchar" MaxLength="50" />
+          <Property Name="Sifre" Type="nchar" MaxLength="50" />
+          <Property Name="SonGirisTarihi" Type="datetime" Nullable="false" />
+          <Property Name="KayitTarihi" Type="datetime" />
+          <Property Name="Aktif" Type="bit" />
+          <Property Name="Admin" Type="bit" />
+          <Property Name="Ad" Type="nchar" MaxLength="50" />
+          <Property Name="Soyad" Type="nchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DbInfoTechSales_New.dbo.VwOrder' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VwOrder">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="PersonId" Type="int" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="Adet" Type="int" />
+          <Property Name="AraToplam" Type="float" />
+          <Property Name="Vergiler" Type="float" />
+          <Property Name="Toplam" Type="float" />
+          <Property Name="CreateDate" Type="smalldatetime" />
+          <Property Name="Situation" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DbInfoTechSales_New.dbo.VwOrderDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VwOrderDetails">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="PersonId" Type="int" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="PersonAdress" Type="nvarchar(max)" />
+          <Property Name="PersonContact" Type="nvarchar(max)" />
+          <Property Name="Adet" Type="int" />
+          <Property Name="AraToplam" Type="float" />
+          <Property Name="Vergiler" Type="float" />
+          <Property Name="Toplam" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DbInfoTechSales_New.dbo.VwProfilShow' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VwProfilShow">
+          <Key>
+            <PropertyRef Name="PersonId" />
+          </Key>
+          <Property Name="Name" Type="nchar" MaxLength="50" />
+          <Property Name="Surname" Type="nchar" MaxLength="50" />
+          <Property Name="CreateDateTime" Type="smalldatetime" />
+          <Property Name="Username" Type="nchar" MaxLength="50" />
+          <Property Name="Pass" Type="nchar" MaxLength="50" />
+          <Property Name="UserEmail" Type="nvarchar(max)" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+          <Property Name="PersonId" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DbInfoTechSales_New.dbo.VWUrunVeKategoriler' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VWUrunVeKategoriler">
+          <Key>
+            <PropertyRef Name="UrunId" />
+          </Key>
+          <Property Name="KategoriId" Type="int" />
+          <Property Name="UrunId" Type="int" Nullable="false" />
+          <Property Name="UrunKodu" Type="nvarchar" MaxLength="50" />
+          <Property Name="UrunAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="KdvOrani" Type="float" />
+          <Property Name="BirimFiyat" Type="numeric" Precision="18" Scale="2" />
+        </EntityType>
+        <Association Name=" FK_TblEmail_TblKisi">
+          <End Role="TblKisi" Type="Self.TblKisi" Multiplicity="0..1" />
+          <End Role="TblEmail" Type="Self.TblEmail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblKisi">
+              <PropertyRef Name="KisiId" />
+            </Principal>
+            <Dependent Role="TblEmail">
+              <PropertyRef Name="KisiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name=" FK_TblKisiAdres_TblKisi">
+          <End Role="TblKisi" Type="Self.TblKisi" Multiplicity="0..1" />
+          <End Role="TblKisiAdres" Type="Self.TblKisiAdres" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblKisi">
+              <PropertyRef Name="KisiId" />
+            </Principal>
+            <Dependent Role="TblKisiAdres">
+              <PropertyRef Name="KisiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name=" FK_TblKisiTelefon_TblKisi">
+          <End Role="TblKisi" Type="Self.TblKisi" Multiplicity="0..1" />
+          <End Role="TblKisiTelefon" Type="Self.TblKisiTelefon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblKisi">
+              <PropertyRef Name="KisiId" />
+            </Principal>
+            <Dependent Role="TblKisiTelefon">
+              <PropertyRef Name="KisiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name=" FK_TblKullanici_TblKisi">
+          <End Role="TblKisi" Type="Self.TblKisi" Multiplicity="0..1" />
+          <End Role="TblKullanici" Type="Self.TblKullanici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblKisi">
+              <PropertyRef Name="KisiId" />
+            </Principal>
+            <Dependent Role="TblKullanici">
+              <PropertyRef Name="KisiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="GenerateSeo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar(max)">
+          <Parameter Name="Metin" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="GenereteSeo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar(max)">
+          <Parameter Name="metin" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="DbInfoTechSales_NewModelStoreContainer">
+          <EntitySet Name="TblEmail" EntityType="Self.TblEmail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblKategori" EntityType="Self.TblKategori" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblKisi" EntityType="Self.TblKisi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblKisiAdres" EntityType="Self.TblKisiAdres" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblKisiTelefon" EntityType="Self.TblKisiTelefon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblKullanici" EntityType="Self.TblKullanici" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblOrder" EntityType="Self.TblOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblOrderDetails" EntityType="Self.TblOrderDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblOrderPrice" EntityType="Self.TblOrderPrice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblSepet" EntityType="Self.TblSepet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblSepetDetay" EntityType="Self.TblSepetDetay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblUrun" EntityType="Self.TblUrun" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblUrunKategori" EntityType="Self.TblUrunKategori" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YeniAdresTablosu" EntityType="Self.YeniAdresTablosu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VwBasket" EntityType="Self.VwBasket" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VwBasket].[KisiId] AS [KisiId], 
+    [VwBasket].[SepetId] AS [SepetId], 
+    [VwBasket].[SepetTarihi] AS [SepetTarihi], 
+    [VwBasket].[UrunAdi] AS [UrunAdi], 
+    [VwBasket].[UrunId] AS [UrunId], 
+    [VwBasket].[UrunKodu] AS [UrunKodu], 
+    [VwBasket].[BirimFiyat] AS [BirimFiyat], 
+    [VwBasket].[Adet] AS [Adet], 
+    [VwBasket].[KdvOrani] AS [KdvOrani], 
+    [VwBasket].[KdvToplami] AS [KdvToplami], 
+    [VwBasket].[AraToplam] AS [AraToplam]
+    FROM [dbo].[VwBasket] AS [VwBasket]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VWKisiKullanici" EntityType="Self.VWKisiKullanici" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VWKisiKullanici].[KullaniciId] AS [KullaniciId], 
+    [VWKisiKullanici].[KisiId] AS [KisiId], 
+    [VWKisiKullanici].[KullaniciAdi] AS [KullaniciAdi], 
+    [VWKisiKullanici].[Sifre] AS [Sifre], 
+    [VWKisiKullanici].[SonGirisTarihi] AS [SonGirisTarihi], 
+    [VWKisiKullanici].[KayitTarihi] AS [KayitTarihi], 
+    [VWKisiKullanici].[Aktif] AS [Aktif], 
+    [VWKisiKullanici].[Admin] AS [Admin], 
+    [VWKisiKullanici].[Ad] AS [Ad], 
+    [VWKisiKullanici].[Soyad] AS [Soyad]
+    FROM [dbo].[VWKisiKullanici] AS [VWKisiKullanici]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VwOrder" EntityType="Self.VwOrder" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VwOrder].[PersonId] AS [PersonId], 
+    [VwOrder].[OrderId] AS [OrderId], 
+    [VwOrder].[Adet] AS [Adet], 
+    [VwOrder].[AraToplam] AS [AraToplam], 
+    [VwOrder].[Vergiler] AS [Vergiler], 
+    [VwOrder].[Toplam] AS [Toplam], 
+    [VwOrder].[CreateDate] AS [CreateDate], 
+    [VwOrder].[Situation] AS [Situation]
+    FROM [dbo].[VwOrder] AS [VwOrder]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VwOrderDetails" EntityType="Self.VwOrderDetails" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VwOrderDetails].[PersonId] AS [PersonId], 
+    [VwOrderDetails].[OrderId] AS [OrderId], 
+    [VwOrderDetails].[ProductId] AS [ProductId], 
+    [VwOrderDetails].[PersonAdress] AS [PersonAdress], 
+    [VwOrderDetails].[PersonContact] AS [PersonContact], 
+    [VwOrderDetails].[Adet] AS [Adet], 
+    [VwOrderDetails].[AraToplam] AS [AraToplam], 
+    [VwOrderDetails].[Vergiler] AS [Vergiler], 
+    [VwOrderDetails].[Toplam] AS [Toplam]
+    FROM [dbo].[VwOrderDetails] AS [VwOrderDetails]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VwProfilShow" EntityType="Self.VwProfilShow" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VwProfilShow].[Name] AS [Name], 
+    [VwProfilShow].[Surname] AS [Surname], 
+    [VwProfilShow].[CreateDateTime] AS [CreateDateTime], 
+    [VwProfilShow].[Username] AS [Username], 
+    [VwProfilShow].[Pass] AS [Pass], 
+    [VwProfilShow].[UserEmail] AS [UserEmail], 
+    [VwProfilShow].[Phone] AS [Phone], 
+    [VwProfilShow].[PersonId] AS [PersonId]
+    FROM [dbo].[VwProfilShow] AS [VwProfilShow]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VWUrunVeKategoriler" EntityType="Self.VWUrunVeKategoriler" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VWUrunVeKategoriler].[KategoriId] AS [KategoriId], 
+    [VWUrunVeKategoriler].[UrunId] AS [UrunId], 
+    [VWUrunVeKategoriler].[UrunKodu] AS [UrunKodu], 
+    [VWUrunVeKategoriler].[UrunAdi] AS [UrunAdi], 
+    [VWUrunVeKategoriler].[KdvOrani] AS [KdvOrani], 
+    [VWUrunVeKategoriler].[BirimFiyat] AS [BirimFiyat]
+    FROM [dbo].[VWUrunVeKategoriler] AS [VWUrunVeKategoriler]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name=" FK_TblEmail_TblKisi" Association="Self. FK_TblEmail_TblKisi">
+            <End Role="TblKisi" EntitySet="TblKisi" />
+            <End Role="TblEmail" EntitySet="TblEmail" />
+          </AssociationSet>
+          <AssociationSet Name=" FK_TblKisiAdres_TblKisi" Association="Self. FK_TblKisiAdres_TblKisi">
+            <End Role="TblKisi" EntitySet="TblKisi" />
+            <End Role="TblKisiAdres" EntitySet="TblKisiAdres" />
+          </AssociationSet>
+          <AssociationSet Name=" FK_TblKisiTelefon_TblKisi" Association="Self. FK_TblKisiTelefon_TblKisi">
+            <End Role="TblKisi" EntitySet="TblKisi" />
+            <End Role="TblKisiTelefon" EntitySet="TblKisiTelefon" />
+          </AssociationSet>
+          <AssociationSet Name=" FK_TblKullanici_TblKisi" Association="Self. FK_TblKullanici_TblKisi">
+            <End Role="TblKisi" EntitySet="TblKisi" />
+            <End Role="TblKullanici" EntitySet="TblKullanici" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DbInfoTechSales_NewModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TblEmail">
+          <Key>
+            <PropertyRef Name="EmailId" />
+          </Key>
+          <Property Name="EmailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KisiId" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TblKisi" Relationship="Self.C_FK_TblEmail_TblKisi" FromRole="TblEmail" ToRole="TblKisi" />
+        </EntityType>
+        <EntityType Name="TblKategori">
+          <Key>
+            <PropertyRef Name="KategoriId" />
+          </Key>
+          <Property Name="KategoriId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KategoriAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Aktif" Type="Boolean" />
+          <Property Name="Seo" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TblKisi">
+          <Key>
+            <PropertyRef Name="KisiId" />
+          </Key>
+          <Property Name="KisiId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ad" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="TblEmail" Relationship="Self.C_FK_TblEmail_TblKisi" FromRole="TblKisi" ToRole="TblEmail" />
+          <NavigationProperty Name="TblKisiAdres" Relationship="Self.C_FK_TblKisiAdres_TblKisi" FromRole="TblKisi" ToRole="TblKisiAdres" />
+          <NavigationProperty Name="TblKisiTelefon" Relationship="Self.C_FK_TblKisiTelefon_TblKisi" FromRole="TblKisi" ToRole="TblKisiTelefon" />
+          <NavigationProperty Name="TblKullanici" Relationship="Self.C_FK_TblKullanici_TblKisi" FromRole="TblKisi" ToRole="TblKullanici" />
+        </EntityType>
+        <EntityType Name="TblKisiAdres">
+          <Key>
+            <PropertyRef Name="AdresId" />
+          </Key>
+          <Property Name="AdresId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KisiId" Type="Int32" />
+          <Property Name="Adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TblKisi" Relationship="Self.C_FK_TblKisiAdres_TblKisi" FromRole="TblKisiAdres" ToRole="TblKisi" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="District" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TblKisiTelefon">
+          <Key>
+            <PropertyRef Name="TelefonId" />
+          </Key>
+          <Property Name="TelefonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KisiId" Type="Int32" />
+          <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TblKisi" Relationship="Self.C_FK_TblKisiTelefon_TblKisi" FromRole="TblKisiTelefon" ToRole="TblKisi" />
+        </EntityType>
+        <EntityType Name="TblKullanici">
+          <Key>
+            <PropertyRef Name="KullaniciId" />
+          </Key>
+          <Property Name="KullaniciId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KisiId" Type="Int32" />
+          <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="SonGirisTarihi" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="KayitTarihi" Type="DateTime" Precision="3" />
+          <Property Name="Aktif" Type="Boolean" />
+          <Property Name="Admin" Type="Boolean" />
+          <NavigationProperty Name="TblKisi" Relationship="Self.C_FK_TblKullanici_TblKisi" FromRole="TblKullanici" ToRole="TblKisi" />
+        </EntityType>
+        <EntityType Name="TblOrder">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonId" Type="Int32" />
+          <Property Name="Situation" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="TblOrderDetails">
+          <Key>
+            <PropertyRef Name="OrderDetailId" />
+          </Key>
+          <Property Name="OrderDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="orderId" Type="Int32" />
+          <Property Name="PersonId" Type="Int32" />
+          <Property Name="PersonAdress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PersonContact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProductId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TblOrderPrice">
+          <Key>
+            <PropertyRef Name="OrderPriceId" />
+          </Key>
+          <Property Name="OrderPriceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="Int32" />
+          <Property Name="OrderPiece" Type="Int32" />
+          <Property Name="OrderTex" Type="Double" />
+          <Property Name="OrderlSub" Type="Double" />
+          <Property Name="OrderTotalPrice" Type="Double" />
+        </EntityType>
+        <EntityType Name="TblSepet">
+          <Key>
+            <PropertyRef Name="SepetId" />
+          </Key>
+          <Property Name="SepetId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KisiId" Type="Int32" />
+          <Property Name="SepetTarihi" Type="DateTime" Precision="3" />
+          <Property Name="Durum" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TblSepetDetay">
+          <Key>
+            <PropertyRef Name="SepetDetayId" />
+          </Key>
+          <Property Name="SepetDetayId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KisiId" Type="Int32" />
+          <Property Name="SepetId" Type="Int32" />
+          <Property Name="UrunId" Type="Int32" />
+          <Property Name="Adet" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="BirimFiyat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="AraToplam" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="KdvToplami" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="KdvOrani" Type="Double" />
+        </EntityType>
+        <EntityType Name="TblUrun">
+          <Key>
+            <PropertyRef Name="UrunId" />
+          </Key>
+          <Property Name="UrunId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UrunKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UrunAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BirimFiyat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="KdvOrani" Type="Double" />
+        </EntityType>
+        <EntityType Name="TblUrunKategori">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UrunId" Type="Int32" />
+          <Property Name="KategoriId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="VwBasket">
+          <Key>
+            <PropertyRef Name="SepetId" />
+            <PropertyRef Name="UrunId" />
+          </Key>
+          <Property Name="KisiId" Type="Int32" />
+          <Property Name="SepetId" Type="Int32" Nullable="false" />
+          <Property Name="SepetTarihi" Type="DateTime" Precision="3" />
+          <Property Name="UrunAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UrunId" Type="Int32" Nullable="false" />
+          <Property Name="UrunKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BirimFiyat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Adet" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="KdvOrani" Type="Double" />
+          <Property Name="KdvToplami" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="AraToplam" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="VWKisiKullanici">
+          <Key>
+            <PropertyRef Name="KullaniciId" />
+            <PropertyRef Name="SonGirisTarihi" />
+          </Key>
+          <Property Name="KullaniciId" Type="Int32" Nullable="false" />
+          <Property Name="KisiId" Type="Int32" />
+          <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="SonGirisTarihi" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="KayitTarihi" Type="DateTime" Precision="3" />
+          <Property Name="Aktif" Type="Boolean" />
+          <Property Name="Admin" Type="Boolean" />
+          <Property Name="Ad" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VwOrder">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="PersonId" Type="Int32" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="Adet" Type="Int32" />
+          <Property Name="AraToplam" Type="Double" />
+          <Property Name="Vergiler" Type="Double" />
+          <Property Name="Toplam" Type="Double" />
+          <Property Name="CreateDate" Type="DateTime" Precision="0" />
+          <Property Name="Situation" Type="Int32" />
+        </EntityType>
+        <EntityType Name="VwOrderDetails">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="PersonId" Type="Int32" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="PersonAdress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PersonContact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Adet" Type="Int32" />
+          <Property Name="AraToplam" Type="Double" />
+          <Property Name="Vergiler" Type="Double" />
+          <Property Name="Toplam" Type="Double" />
+        </EntityType>
+        <EntityType Name="VwProfilShow">
+          <Key>
+            <PropertyRef Name="PersonId" />
+          </Key>
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="CreateDateTime" Type="DateTime" Precision="0" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Pass" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="UserEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PersonId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="C_FK_TblEmail_TblKisi">
+          <End Role="TblKisi" Type="Self.TblKisi" Multiplicity="0..1" />
+          <End Role="TblEmail" Type="Self.TblEmail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblKisi">
+              <PropertyRef Name="KisiId" />
+            </Principal>
+            <Dependent Role="TblEmail">
+              <PropertyRef Name="KisiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="C_FK_TblKisiAdres_TblKisi">
+          <End Role="TblKisi" Type="Self.TblKisi" Multiplicity="0..1" />
+          <End Role="TblKisiAdres" Type="Self.TblKisiAdres" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblKisi">
+              <PropertyRef Name="KisiId" />
+            </Principal>
+            <Dependent Role="TblKisiAdres">
+              <PropertyRef Name="KisiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="C_FK_TblKisiTelefon_TblKisi">
+          <End Role="TblKisi" Type="Self.TblKisi" Multiplicity="0..1" />
+          <End Role="TblKisiTelefon" Type="Self.TblKisiTelefon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblKisi">
+              <PropertyRef Name="KisiId" />
+            </Principal>
+            <Dependent Role="TblKisiTelefon">
+              <PropertyRef Name="KisiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="C_FK_TblKullanici_TblKisi">
+          <End Role="TblKisi" Type="Self.TblKisi" Multiplicity="0..1" />
+          <End Role="TblKullanici" Type="Self.TblKullanici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblKisi">
+              <PropertyRef Name="KisiId" />
+            </Principal>
+            <Dependent Role="TblKullanici">
+              <PropertyRef Name="KisiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DbInfoTechSales_NewEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TblEmail" EntityType="Self.TblEmail" />
+          <EntitySet Name="TblKategori" EntityType="Self.TblKategori" />
+          <EntitySet Name="TblKisi" EntityType="Self.TblKisi" />
+          <EntitySet Name="TblKisiAdres" EntityType="Self.TblKisiAdres" />
+          <EntitySet Name="TblKisiTelefon" EntityType="Self.TblKisiTelefon" />
+          <EntitySet Name="TblKullanici" EntityType="Self.TblKullanici" />
+          <EntitySet Name="TblOrder" EntityType="Self.TblOrder" />
+          <EntitySet Name="TblOrderDetails" EntityType="Self.TblOrderDetails" />
+          <EntitySet Name="TblOrderPrice" EntityType="Self.TblOrderPrice" />
+          <EntitySet Name="TblSepet" EntityType="Self.TblSepet" />
+          <EntitySet Name="TblSepetDetay" EntityType="Self.TblSepetDetay" />
+          <EntitySet Name="TblUrun" EntityType="Self.TblUrun" />
+          <EntitySet Name="TblUrunKategori" EntityType="Self.TblUrunKategori" />
+          <EntitySet Name="VwBasket" EntityType="Self.VwBasket" />
+          <EntitySet Name="VWKisiKullanici" EntityType="Self.VWKisiKullanici" />
+          <EntitySet Name="VwOrder" EntityType="Self.VwOrder" />
+          <EntitySet Name="VwOrderDetails" EntityType="Self.VwOrderDetails" />
+          <EntitySet Name="VwProfilShow" EntityType="Self.VwProfilShow" />
+          <AssociationSet Name="C_FK_TblEmail_TblKisi" Association="Self.C_FK_TblEmail_TblKisi">
+            <End Role="TblKisi" EntitySet="TblKisi" />
+            <End Role="TblEmail" EntitySet="TblEmail" />
+          </AssociationSet>
+          <AssociationSet Name="C_FK_TblKisiAdres_TblKisi" Association="Self.C_FK_TblKisiAdres_TblKisi">
+            <End Role="TblKisi" EntitySet="TblKisi" />
+            <End Role="TblKisiAdres" EntitySet="TblKisiAdres" />
+          </AssociationSet>
+          <AssociationSet Name="C_FK_TblKisiTelefon_TblKisi" Association="Self.C_FK_TblKisiTelefon_TblKisi">
+            <End Role="TblKisi" EntitySet="TblKisi" />
+            <End Role="TblKisiTelefon" EntitySet="TblKisiTelefon" />
+          </AssociationSet>
+          <AssociationSet Name="C_FK_TblKullanici_TblKisi" Association="Self.C_FK_TblKullanici_TblKisi">
+            <End Role="TblKisi" EntitySet="TblKisi" />
+            <End Role="TblKullanici" EntitySet="TblKullanici" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="VWUrunVeKategoriler" EntityType="DbInfoTechSales_NewModel.VWUrunVeKategoriler" />
+          <EntitySet Name="YeniAdresTablosu" EntityType="DbInfoTechSales_NewModel.YeniAdresTablosu" />
+        </EntityContainer>
+        <EntityType Name="VWUrunVeKategoriler">
+          <Key>
+            <PropertyRef Name="UrunId" />
+          </Key>
+          <Property Name="KategoriId" Type="Int32" />
+          <Property Name="UrunId" Type="Int32" Nullable="false" />
+          <Property Name="UrunKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UrunAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KdvOrani" Type="Double" />
+          <Property Name="BirimFiyat" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="YeniAdresTablosu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SehirIlceMahalleAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UstID" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DbInfoTechSales_NewModelStoreContainer" CdmEntityContainer="DbInfoTechSales_NewEntities">
+          <EntitySetMapping Name="TblEmail">
+            <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.TblEmail">
+              <MappingFragment StoreEntitySet="TblEmail">
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="KisiId" ColumnName="KisiId" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblKategori">
+            <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.TblKategori">
+              <MappingFragment StoreEntitySet="TblKategori">
+                <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+                <ScalarProperty Name="KategoriAdi" ColumnName="KategoriAdi" />
+                <ScalarProperty Name="Aktif" ColumnName="Aktif" />
+                <ScalarProperty Name="Seo" ColumnName="Seo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblKisi">
+            <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.TblKisi">
+              <MappingFragment StoreEntitySet="TblKisi">
+                <ScalarProperty Name="KisiId" ColumnName="KisiId" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblKisiAdres">
+            <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.TblKisiAdres">
+              <MappingFragment StoreEntitySet="TblKisiAdres">
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="AdresId" ColumnName="AdresId" />
+                <ScalarProperty Name="KisiId" ColumnName="KisiId" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblKisiTelefon">
+            <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.TblKisiTelefon">
+              <MappingFragment StoreEntitySet="TblKisiTelefon">
+                <ScalarProperty Name="TelefonId" ColumnName="TelefonId" />
+                <ScalarProperty Name="KisiId" ColumnName="KisiId" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblKullanici">
+            <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.TblKullanici">
+              <MappingFragment StoreEntitySet="TblKullanici">
+                <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
+                <ScalarProperty Name="KisiId" ColumnName="KisiId" />
+                <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="SonGirisTarihi" ColumnName="SonGirisTarihi" />
+                <ScalarProperty Name="KayitTarihi" ColumnName="KayitTarihi" />
+                <ScalarProperty Name="Aktif" ColumnName="Aktif" />
+                <ScalarProperty Name="Admin" ColumnName="Admin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblOrder">
+            <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.TblOrder">
+              <MappingFragment StoreEntitySet="TblOrder">
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+                <ScalarProperty Name="Situation" ColumnName="Situation" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblOrderDetails">
+            <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.TblOrderDetails">
+              <MappingFragment StoreEntitySet="TblOrderDetails">
+                <ScalarProperty Name="OrderDetailId" ColumnName="OrderDetailId" />
+                <ScalarProperty Name="orderId" ColumnName="orderId" />
+                <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+                <ScalarProperty Name="PersonAdress" ColumnName="PersonAdress" />
+                <ScalarProperty Name="PersonContact" ColumnName="PersonContact" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblOrderPrice">
+            <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.TblOrderPrice">
+              <MappingFragment StoreEntitySet="TblOrderPrice">
+                <ScalarProperty Name="OrderPriceId" ColumnName="OrderPriceId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="OrderPiece" ColumnName="OrderPiece" />
+                <ScalarProperty Name="OrderTex" ColumnName="OrderTex" />
+                <ScalarProperty Name="OrderlSub" ColumnName="OrderlSub" />
+                <ScalarProperty Name="OrderTotalPrice" ColumnName="OrderTotalPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblSepet">
+            <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.TblSepet">
+              <MappingFragment StoreEntitySet="TblSepet">
+                <ScalarProperty Name="SepetId" ColumnName="SepetId" />
+                <ScalarProperty Name="KisiId" ColumnName="KisiId" />
+                <ScalarProperty Name="SepetTarihi" ColumnName="SepetTarihi" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblSepetDetay">
+            <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.TblSepetDetay">
+              <MappingFragment StoreEntitySet="TblSepetDetay">
+                <ScalarProperty Name="SepetDetayId" ColumnName="SepetDetayId" />
+                <ScalarProperty Name="KisiId" ColumnName="KisiId" />
+                <ScalarProperty Name="SepetId" ColumnName="SepetId" />
+                <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+                <ScalarProperty Name="Adet" ColumnName="Adet" />
+                <ScalarProperty Name="BirimFiyat" ColumnName="BirimFiyat" />
+                <ScalarProperty Name="AraToplam" ColumnName="AraToplam" />
+                <ScalarProperty Name="KdvToplami" ColumnName="KdvToplami" />
+                <ScalarProperty Name="KdvOrani" ColumnName="KdvOrani" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblUrun">
+            <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.TblUrun">
+              <MappingFragment StoreEntitySet="TblUrun">
+                <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+                <ScalarProperty Name="UrunKodu" ColumnName="UrunKodu" />
+                <ScalarProperty Name="UrunAdi" ColumnName="UrunAdi" />
+                <ScalarProperty Name="BirimFiyat" ColumnName="BirimFiyat" />
+                <ScalarProperty Name="KdvOrani" ColumnName="KdvOrani" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblUrunKategori">
+            <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.TblUrunKategori">
+              <MappingFragment StoreEntitySet="TblUrunKategori">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+                <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VwBasket">
+            <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.VwBasket">
+              <MappingFragment StoreEntitySet="VwBasket">
+                <ScalarProperty Name="KisiId" ColumnName="KisiId" />
+                <ScalarProperty Name="SepetId" ColumnName="SepetId" />
+                <ScalarProperty Name="SepetTarihi" ColumnName="SepetTarihi" />
+                <ScalarProperty Name="UrunAdi" ColumnName="UrunAdi" />
+                <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+                <ScalarProperty Name="UrunKodu" ColumnName="UrunKodu" />
+                <ScalarProperty Name="BirimFiyat" ColumnName="BirimFiyat" />
+                <ScalarProperty Name="Adet" ColumnName="Adet" />
+                <ScalarProperty Name="KdvOrani" ColumnName="KdvOrani" />
+                <ScalarProperty Name="KdvToplami" ColumnName="KdvToplami" />
+                <ScalarProperty Name="AraToplam" ColumnName="AraToplam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VWKisiKullanici">
+            <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.VWKisiKullanici">
+              <MappingFragment StoreEntitySet="VWKisiKullanici">
+                <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
+                <ScalarProperty Name="KisiId" ColumnName="KisiId" />
+                <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="SonGirisTarihi" ColumnName="SonGirisTarihi" />
+                <ScalarProperty Name="KayitTarihi" ColumnName="KayitTarihi" />
+                <ScalarProperty Name="Aktif" ColumnName="Aktif" />
+                <ScalarProperty Name="Admin" ColumnName="Admin" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VwOrder">
+            <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.VwOrder">
+              <MappingFragment StoreEntitySet="VwOrder">
+                <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Adet" ColumnName="Adet" />
+                <ScalarProperty Name="AraToplam" ColumnName="AraToplam" />
+                <ScalarProperty Name="Vergiler" ColumnName="Vergiler" />
+                <ScalarProperty Name="Toplam" ColumnName="Toplam" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Situation" ColumnName="Situation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VwOrderDetails">
+            <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.VwOrderDetails">
+              <MappingFragment StoreEntitySet="VwOrderDetails">
+                <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="PersonAdress" ColumnName="PersonAdress" />
+                <ScalarProperty Name="PersonContact" ColumnName="PersonContact" />
+                <ScalarProperty Name="Adet" ColumnName="Adet" />
+                <ScalarProperty Name="AraToplam" ColumnName="AraToplam" />
+                <ScalarProperty Name="Vergiler" ColumnName="Vergiler" />
+                <ScalarProperty Name="Toplam" ColumnName="Toplam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VwProfilShow">
+            <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.VwProfilShow">
+              <MappingFragment StoreEntitySet="VwProfilShow">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="DbInfoTechSales_NewModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="DbInfoTechSales_NewModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="DbInfoTechSales_NewModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="DbInfoTechSales_NewModel.Store.sp_helpdiagramdefinition" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="DbInfoTechSales_NewModel.Store.sp_helpdiagrams" />
+          <EntitySetMapping Name="VWUrunVeKategoriler">
+            <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.VWUrunVeKategoriler">
+              <MappingFragment StoreEntitySet="VWUrunVeKategoriler">
+                <ScalarProperty Name="BirimFiyat" ColumnName="BirimFiyat" />
+                <ScalarProperty Name="KdvOrani" ColumnName="KdvOrani" />
+                <ScalarProperty Name="UrunAdi" ColumnName="UrunAdi" />
+                <ScalarProperty Name="UrunKodu" ColumnName="UrunKodu" />
+                <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+                <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YeniAdresTablosu">
+            <EntityTypeMapping TypeName="DbInfoTechSales_NewModel.YeniAdresTablosu">
+              <MappingFragment StoreEntitySet="YeniAdresTablosu">
+                <ScalarProperty Name="UstID" ColumnName="UstID" />
+                <ScalarProperty Name="SehirIlceMahalleAdi" ColumnName="SehirIlceMahalleAdi" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
