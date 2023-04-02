@@ -54,7 +54,7 @@ namespace BussinesLayer.Concrete
 			TblKisiAdres tblKisiAdres = (from data in Context.TblKisiAdres
 										 where
 										 data.KisiId == PersonId
-										 select data).SingleOrDefault();
+										 select data).FirstOrDefault();
 			string PersonAdress = tblKisiAdres.Adres;
 			TblKisiTelefon tblKisiTelefon = (from data in Context.TblKisiTelefon
 											 where

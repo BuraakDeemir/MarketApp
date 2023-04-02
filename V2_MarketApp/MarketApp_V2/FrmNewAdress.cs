@@ -35,9 +35,17 @@ namespace MarketApp_V2
 		
 		private void BtnSave_Click(object sender, EventArgs e)
 		{
-			User.AddNewAdress(UserId, TxtNewAdress.Text, CmbCity.SelectedItem.ToString(), CmbDistrict.SelectedItem.ToString());
-			MessageBox.Show("İşlem Başarılı");
-			this.Close();
+			if (TxtNewAdress.Text == "" && CmbCity.Text =="" && CmbDistrict.Text =="")
+			{
+				MessageBox.Show("Lütfen Boş Alanları Doldurunuz.");
+			}
+			else
+			{
+                User.AddNewAdress(UserId, TxtNewAdress.Text, CmbCity.SelectedItem.ToString(), CmbDistrict.SelectedItem.ToString());
+                MessageBox.Show("İşlem Başarılı");
+                this.Close();
+            }
+			
 		}
 
 		private void CmbCity_SelectedIndexChanged(object sender, EventArgs e)
